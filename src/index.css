@@ -12,7 +12,34 @@ code {
     monospace;
 }
 
-img{
+
+.main-section-container{
+  overflow-x: scroll;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap:nowrap;
+
+}
+h3{
+  text-align: center;
+}
+.card{
+  margin: 40px 20px;
+}
+.card img{
   width: 20vw;
   height: 30vh;
+}
+.card-body{
+  text-align: center;
+}
+#new{
+  background-color: black;
+  color:white;
+  display: inline;
+  padding: 2px;
+  position: relative;
+  z-index: 1;
+  bottom: 34vh;
+  right: 10vw;
 }

@@ -2,15 +2,39 @@ import { FETCH_ITEMS } from  '../actions/types'
 
 const initialState = {
   items: [],
-  item: {}
+  newItems:[],
+  popularItems:[],
+  expensiveItems:[],
+  item: {},
 }
 
 const itemReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_ITEMS:
+      let newItems = []
+      for(let item of action.payload){
+        if(item.year == 2020){
+          newItems.push(item)
+        }
+      }
+      let popularItems = []
+      for(let item of action.payload){
+        if(item.sales > 460){
+          popularItems.push(item)
+        }
+      }
+      let expensiveItems = []
+      for(let item of action.payload){
+        if(item.price > 100){
+          expensiveItems.push(item)
+        }
+      }
       return({
         ...state,
-        items: action.payload
+        items: action.payload,
+        newItems: newItems,
+        popularItems: popularItems,
+        expensiveItems: expensiveItems
       })
 
 
