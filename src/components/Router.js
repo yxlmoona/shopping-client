@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 import React from 'react';
 import Main from './main.js'
 import Show from './show.js'
+import Cart from './cart.js'
+
 
 
 class Routers extends React.Component{
@@ -14,9 +16,16 @@ class Routers extends React.Component{
           <nav>
             <Link to='/'>Home</Link>
 
+            <Link to='/cart'>Cart</Link>
+
+
           </nav>
           <Route path='/' exact component={Main}/>
           <Route path={`/${this.props.item.id}`} exact component={Show}/>
+
+          <Route path='/cart'  component={Cart}/>
+
+
 
         </div>
 

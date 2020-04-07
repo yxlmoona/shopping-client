@@ -3,12 +3,11 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { addToCart } from '../actions/cartActions.js'
 
-
 class Show extends React.Component{
   constructor(props){
     super(props)
     this.state = {
-      value: null
+      value: 1
     }
     this.handleChange = this.handleChange.bind(this)
   }
@@ -31,7 +30,7 @@ class Show extends React.Component{
         </div>
         <div>
           <h5>{`$${this.props.item.price}`}</h5>
-          <h5>SPEND $50 FOR FREE SHIPPING</h5>
+          <h5>SPEND $100 FOR FREE SHIPPING</h5>
           <form onSubmit={(e) => {
             this.props.addToCart(e, this.props.item, parseInt(this.state.value))
           }}>

@@ -3,9 +3,7 @@ import React from 'react';
 
 import { Provider } from 'react-redux'
 import store from './store.js'
-import Main from './components/main.js'
 import Routers from './components/Router.js'
-import Show from './components/show.js'
 
 class App extends React.Component{
   render(){

@@ -15,6 +15,7 @@ const cartReducer = (state = initialState, action) => {
   switch (action.type) {
 
     case ADD_TO_CART:
+      
       let item = {...state.item}
       item.itemMain = action.payload
       item.count = action.count

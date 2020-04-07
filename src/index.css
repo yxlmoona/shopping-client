@@ -52,3 +52,11 @@ code {
   width: 20vw;
   height: 20vh;
 }
+.cart-container, .cart-container-left, .cart-container-right {
+  display: flex;
+  justify-content: space-around;
+}
+.cart-container img{
+  width: 20vw;
+  height: 20vh;
+}
