@@ -1,4 +1,4 @@
-import { FETCH_ITEMS } from './types.js'
+import { FETCH_ITEMS, SHOW_ITEM } from './types.js'
 
 export const fetchItems = () => {
   return(
@@ -16,6 +16,18 @@ export const fetchItems = () => {
           console.log(e);
         }
       })()
+    }
+  )
+}
+
+export const showItem = (item) => {
+  return(
+    (dispatch) => {
+      dispatch({
+        type: SHOW_ITEM,
+        payload: item
+      })
+
     }
   )
 }

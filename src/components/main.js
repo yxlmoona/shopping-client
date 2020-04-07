@@ -1,9 +1,9 @@
 import React from 'react';
-
+import { Link } from "react-router-dom";
 import { connect } from 'react-redux'
-import { fetchItems } from '../actions/itemActions.js'
+import { fetchItems, showItem } from '../actions/itemActions.js'
 import PropTypes from 'prop-types'
-
+import Show from './show.js'
 
 
 class Main extends React.Component{
@@ -13,15 +13,21 @@ class Main extends React.Component{
   render(){
     return(
       <>
-        <div className='main-container'>
+    <div className='main-container'>
           <h3> Just Arrived </h3>
+
             <div className='main-section-container'>
 
           {
             this.props.newItems.map((item) => {
               return(
                 <>
-                  <div className='card'>
+                <Link to={`/${item.id}`}>
+                  <div onClick={() => {
+                    return(
+                    this.props.showItem(item)
+                    )
+                  }} className='card'>
                     <img src={item.image}/>
                     <div className='card-body'>
                       <h5 id='new'>NEW</h5>
@@ -29,6 +35,7 @@ class Main extends React.Component{
                       <p>{item.title}</p>
                     </div>
                   </div>
+                </Link>
                 </>
               )
             })
@@ -91,7 +98,8 @@ const mapStateToProps = (state) => {
     items: state.items.items,
     newItems: state.items.newItems,
     popularItems: state.items.popularItems,
-    expensiveItems: state.items.expensiveItems
+    expensiveItems: state.items.expensiveItems,
+
   })
 }
-export default connect(mapStateToProps,{fetchItems})(Main);
+export default connect(mapStateToProps,{fetchItems, showItem})(Main);

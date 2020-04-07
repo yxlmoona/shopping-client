@@ -1,4 +1,4 @@
-import { FETCH_ITEMS } from  '../actions/types'
+import { FETCH_ITEMS, SHOW_ITEM} from  '../actions/types'
 
 const initialState = {
   items: [],
@@ -36,6 +36,12 @@ const itemReducer = (state = initialState, action) => {
         popularItems: popularItems,
         expensiveItems: expensiveItems
       })
+    case SHOW_ITEM:
+      return({
+        ...state,
+        item: action.payload
+      })
+
 
 
     default:
