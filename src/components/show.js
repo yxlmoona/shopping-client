@@ -1,9 +1,22 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
+import { addToCart } from '../actions/cartActions.js'
 
 
 class Show extends React.Component{
+  constructor(props){
+    super(props)
+    this.state = {
+      value: null
+    }
+    this.handleChange = this.handleChange.bind(this)
+  }
+  handleChange(event){
+    this.setState({
+      value: event.target.value
+    })
+  }
   render(){
     return(
       <>
@@ -17,17 +30,21 @@ class Show extends React.Component{
 
         </div>
         <div>
+          <h5>{`$${this.props.item.price}`}</h5>
           <h5>SPEND $50 FOR FREE SHIPPING</h5>
-          <form>
-            <select>
-              <option value={1}>1</option>
-              <option value={2}>2</option>
-              <option value={3}>3</option>
-              <option value={4}>4</option>
-              <option value={5}>5</option>
+          <form onSubmit={(e) => {
+            this.props.addToCart(e, this.props.item, parseInt(this.state.value))
+          }}>
+            <select count={this.state.value} onChange={this.handleChange}>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
             </select>
             <input type="submit" value='ADD TO BASKET'/>
           </form>
+          <button>♡  ADD TO LOVES</button>
         </div>
 
       </div>
@@ -46,4 +63,4 @@ const mapStateToProps = (state) => {
 }
 
 
-export default connect(mapStateToProps,{})(Show)
+export default connect(mapStateToProps,{addToCart})(Show)
