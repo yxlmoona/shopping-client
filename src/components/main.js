@@ -51,7 +51,12 @@ class Main extends React.Component{
               this.props.popularItems.map((item) => {
                 return(
                   <>
-                    <div className='card'>
+                  <Link to={`/${item.id}`}>
+                    <div onClick={() => {
+                      return(
+                      this.props.showItem(item)
+                      )
+                    }} className='card'>
 
                       <img src={item.image}/>
                       <div className='card-body'>
@@ -60,6 +65,7 @@ class Main extends React.Component{
                         <p>{item.title}</p>
                       </div>
                     </div>
+                  </Link>
                   </>
                 )
               })
@@ -74,13 +80,19 @@ class Main extends React.Component{
               this.props.expensiveItems.map((item) => {
                 return(
                   <>
-                    <div className='card'>
+                  <Link to={`/${item.id}`}>
+                    <div onClick={() => {
+                      return(
+                      this.props.showItem(item)
+                      )
+                    }}className='card'>
                       <img src={item.image}/>
                       <div className='card-body'>
                         <h5>{item.brand.name}</h5>
                         <p>{item.title}</p>
                       </div>
                     </div>
+                  </Link>
                   </>
                 )
               })

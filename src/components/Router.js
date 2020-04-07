@@ -6,7 +6,6 @@ import Main from './main.js'
 import Show from './show.js'
 
 
-
 class Routers extends React.Component{
   render(){
     return(
@@ -14,7 +13,7 @@ class Routers extends React.Component{
         <div className="app-container">
           <nav>
             <Link to='/'>Home</Link>
-            
+
           </nav>
           <Route path='/' exact component={Main}/>
           <Route path={`/${this.props.item.id}`} exact component={Show}/>

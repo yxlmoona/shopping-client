@@ -20,7 +20,7 @@ code {
   flex-wrap:nowrap;
 
 }
-h3{
+.main-container h3{
   text-align: center;
 }
 .card{
@@ -42,4 +42,13 @@ h3{
   z-index: 1;
   bottom: 34vh;
   right: 10vw;
+}
+
+.show-container{
+  display: flex;
+  justify-content: space-around;
+}
+.show-container img{
+  width: 20vw;
+  height: 20vh;
 }
