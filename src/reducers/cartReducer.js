@@ -1,4 +1,4 @@
-import { ADD_TO_CART, HANDLE_CHANGE} from  '../actions/types'
+import { ADD_TO_CART, HANDLE_CHANGE, HANDLE_REMOVE} from  '../actions/types'
 
 
 
@@ -13,7 +13,9 @@ const initialState = {
 
 const cartReducer = (state = initialState, action) => {
   let item = {...state.item}
-
+  let tempTotal = 0
+  let copyItems = [...state.items]
+  let foundIndex = 0
   switch (action.type) {
     case ADD_TO_CART:
       item.itemMain = action.payload
@@ -30,12 +32,12 @@ const cartReducer = (state = initialState, action) => {
     item.itemMain = action.editItem
     item.count = action.newCount
 
-    let foundIndex = state.items.findIndex(item => item.itemMain.id == action.editItem.itemMain.id)
+    foundIndex = state.items.findIndex(item => item.itemMain.id == action.editItem.itemMain.id)
 
-    let copyItems = [...state.items]
+    // let copyItems = [...state.items]
     copyItems[foundIndex].count = action.newCount
-    let tempTotal = 0
-    state.items.map((item) => {
+
+    copyItems.map((item) => {
       tempTotal = tempTotal + parseInt(item.count * item.itemMain.price)
       return(tempTotal)
     })
@@ -46,6 +48,21 @@ const cartReducer = (state = initialState, action) => {
       total: tempTotal
 
     })
+
+    case HANDLE_REMOVE:
+    foundIndex = state.items.findIndex(item => item.itemMain.id == action.removeItem.itemMain.id)
+    copyItems.splice(foundIndex, 1)
+    copyItems.map((item) => {
+      tempTotal = tempTotal + parseInt(item.count * item.itemMain.price)
+      return(tempTotal)
+    })
+
+    return({
+      ...state,
+      items: copyItems,
+      total: tempTotal
+    })
+
 
     default:
     return state

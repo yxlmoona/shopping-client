@@ -1,4 +1,4 @@
-import { ADD_TO_CART, HANDLE_CHANGE } from './types.js'
+import { ADD_TO_CART, HANDLE_CHANGE, HANDLE_REMOVE } from './types.js'
 export const addToCart = (e, addItem, count) => {
 
   e.preventDefault()
@@ -25,4 +25,15 @@ export const handleChange = (e, editItem) => {
       })
     }
   )
+}
+
+export const handleRemove = (removeItem) => {
+  return(
+    (dispatch) => {
+    dispatch({
+      type: HANDLE_REMOVE,
+      removeItem: removeItem,
+    })
+  }
+ )
 }
