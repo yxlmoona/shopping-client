@@ -1,10 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
+import { handleChange } from '../actions/cartActions.js'
 
 
 class Cart extends React.Component{
-  
+
   render(){
     return(
       <>
@@ -38,7 +39,9 @@ class Cart extends React.Component{
                     </div>
                     <div className='cart-container-right'>
                       <form >
-                        <select value={item.count}>
+                        <select onChange={(e) => {
+                          this.props.handleChange(e, item)
+                        }} value={item.count}>
                           <option>1</option>
                           <option>2</option>
                           <option>3</option>
@@ -80,4 +83,4 @@ const mapStateToProps = (state) => {
 }
 
 
-export default connect(mapStateToProps,{})(Cart)
+export default connect(mapStateToProps,{handleChange})(Cart)
