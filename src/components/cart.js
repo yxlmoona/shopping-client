@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 
 
 class Cart extends React.Component{
+  
   render(){
     return(
       <>
@@ -36,7 +37,7 @@ class Cart extends React.Component{
                       </div>
                     </div>
                     <div className='cart-container-right'>
-                      <form>
+                      <form >
                         <select value={item.count}>
                           <option>1</option>
                           <option>2</option>
@@ -52,10 +53,18 @@ class Cart extends React.Component{
               )
             })
           }
+          </div>
         </div>
-        </div>
+
         <div>
-        <h1>total: {this.props.total}</h1>
+        <p>Merchandise subtotal: {this.props.total}</p>
+        <p>Shipping & Handling: Free</p>
+        <p>Tax: TBD</p>
+
+        <h3>Estimated Total: {this.props.total}</h3>
+        <form>
+          <input type="submit" value="CHECKOUT"/>
+        </form>
         </div>
       </>
     )

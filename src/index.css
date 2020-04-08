@@ -55,6 +55,7 @@ code {
 .cart-container, .cart-container-left, .cart-container-right {
   display: flex;
   justify-content: space-around;
+  margin: 20px auto;
 }
 .cart-container img{
   width: 20vw;
