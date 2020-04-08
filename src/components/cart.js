@@ -2,6 +2,10 @@ import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { handleChange, handleRemove} from '../actions/cartActions.js'
+import { showItem } from '../actions/itemActions.js'
+
+import { Link } from "react-router-dom";
+
 
 
 class Cart extends React.Component{
@@ -30,13 +34,17 @@ class Cart extends React.Component{
               return(
                 <div key={item.id}>
                   <div className='cart-container'>
-                    <div className='cart-container-left'>
+                  <Link to={`/${item.itemMain.id}`}>
+                    <div onClick = {() => {
+                      this.props.showItem(item.itemMain)
+                    }} className='cart-container-left'>
                       <img src={item.itemMain.image}/>
                       <div>
                       <h3>{item.itemMain.brand.name}</h3>
                       <p>{item.itemMain.title}</p>
                       </div>
                     </div>
+                    </Link>
                     <div className='cart-container-right'>
                       <form>
                         <select onChange={(e) => {
@@ -89,4 +97,4 @@ const mapStateToProps = (state) => {
 }
 
 
-export default connect(mapStateToProps,{handleChange, handleRemove})(Cart)
+export default connect(mapStateToProps,{handleChange, handleRemove, showItem})(Cart)

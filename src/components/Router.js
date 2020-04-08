@@ -21,7 +21,7 @@ class Routers extends React.Component{
 
           </nav>
           <Route path='/' exact component={Main}/>
-          <Route path={`/${this.props.item.id}`} exact component={Show}/>
+          <Route path={`/${this.props.item.id}`} component={Show}/>
 
           <Route path='/cart'  component={Cart}/>
 

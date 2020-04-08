@@ -63,7 +63,6 @@ const cartReducer = (state = initialState, action) => {
       total: tempTotal
     })
 
-
     default:
     return state
 

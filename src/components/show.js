@@ -49,6 +49,18 @@ class Show extends React.Component{
       </div>
       <p>{this.props.item.body}</p>
       <h3>Ratings & Reviews</h3>
+      <div>
+        {this.props.item.reviews.map((review) => {
+          return(
+            <div>
+              <h6>{review.body}  {review.rating}</h6>
+
+            </div>
+
+          )
+        })}
+
+      </div>
 
       </>
     )
