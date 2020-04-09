@@ -1,5 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { Link } from "react-router-dom";
+
 import PropTypes from 'prop-types'
 import { addToCart } from '../actions/cartActions.js'
 import Rater from 'react-rater'
@@ -27,9 +29,11 @@ class Show extends React.Component{
   }
   render(){
     return(
-      <>
+      <div className='show'>
       <Header/>
-      <p>{this.props.item.category1} > {this.props.item.category2} > {this.props.item.title} </p>
+      <div className='header-link'>
+        <p><Link to='/makeup'>{this.props.item.category1} ></Link>  {this.props.item.category2} > {this.props.item.title} </p>
+      </div>
       <div className='show-container'>
         <img src={this.props.item.image}/>
         <div>
@@ -83,7 +87,7 @@ class Show extends React.Component{
 
       </div>
 
-      </>
+      </div>
     )
   }
 }

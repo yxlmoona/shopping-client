@@ -25,9 +25,19 @@ code {
 }
 .main-container h3{
   text-align: center;
+  margin: 20px auto;
 }
 .card{
-  margin: 40px 20px;
+  margin: 60px 20px;
+
+}
+.card p{
+  margin: 10px auto;
+
+}
+.main a{
+  text-decoration: none;
+  color: black;
 }
 .card img{
   width: 150px;
@@ -171,4 +181,58 @@ code {
   width: 200px;
   height: 200px;
   background-color: rgb(255, 105, 180);
+}
+.header-main-inner1 a, .header-main-inner2 a{
+text-decoration: none;
+color: black;
+}
+.makeup-container{
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin-left: 30px;
+}
+.makeup-card{
+  height: 270px;
+  width: 200px;
+  /* border: 0.1em solid red; */
+
+}
+.makeup-card img{
+  width: 120px;
+  height: 150px;
+  margin: 20px 6vw;
+}
+.header-link p{
+  margin: 20px 20px;
+  color: gray;
+}
+.makeup{
+  display: flex;
+  justify-content: center;
+}
+.makeup p{
+  margin: 10px auto;
+}
+.makeup a, p>a{
+  text-decoration: none;
+  color: black;
+}
+
+.makeup-sidebar{
+  border-right: 0.05em solid gray;
+  border-top: 0.05em solid gray;
+
+  padding: 20px;
+}
+.makeup-sidebar h5{
+  font-size: 15px;
+}
+.makeup-brand{
+  width: 150px;
+}
+.makeup-type, .makeup-brand{
+  padding: 10px;
+  border-top: 0.2em solid black;
+
 }

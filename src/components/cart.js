@@ -5,6 +5,7 @@ import { handleChange, handleRemove} from '../actions/cartActions.js'
 import { showItem } from '../actions/itemActions.js'
 
 import { Link } from "react-router-dom";
+import Header from './Header.js'
 
 
 
@@ -13,7 +14,7 @@ class Cart extends React.Component{
   render(){
     return(
       <>
-
+        <Header/>
         <h1>My Basket</h1>
         {
           100-this.props.total > 0

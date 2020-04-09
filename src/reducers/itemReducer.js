@@ -5,12 +5,15 @@ const initialState = {
   newItems:[],
   popularItems:[],
   expensiveItems:[],
+  allMakeup:[],
+  allSkincare:[],
   item: {},
+  makeupBrands:[],
+  skincareBrands:[]
 
 }
 
 const itemReducer = (state = initialState, action) => {
-
   switch (action.type) {
     case FETCH_ITEMS:
       let newItems = []
@@ -31,12 +34,42 @@ const itemReducer = (state = initialState, action) => {
           expensiveItems.push(item)
         }
       }
+      let allMakeup = []
+      let makeupBrands = []
+
+
+      for(let item of action.payload){
+        if(item.category1 == 'makeup'){
+          allMakeup.push(item)
+
+          if(makeupBrands.includes(item.brand.name) == false){
+            makeupBrands.push(item.brand.name)
+          }
+
+        }
+
+      }
+      let allSkincare = []
+      let skincareBrands = []
+      for(let item of action.payload){
+        if(item.category1 == 'skincare'){
+          allSkincare.push(item)
+          if(skincareBrands.includes(item.brand.name) == false){
+            skincareBrands.push(item.brand.name)
+          }
+        }
+      }
       return({
         ...state,
         items: action.payload,
         newItems: newItems,
         popularItems: popularItems,
-        expensiveItems: expensiveItems
+        expensiveItems: expensiveItems,
+        allMakeup: allMakeup,
+        allSkincare: allSkincare,
+        makeupBrands: makeupBrands,
+        skincareBrands: skincareBrands
+
       })
     case SHOW_ITEM:
       return({

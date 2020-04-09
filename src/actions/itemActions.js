@@ -32,29 +32,6 @@ export const showItem = (item) => {
   )
 }
 
-// export const handleChangeReview = (e) => {
-//   return(
-//     (dispatch) => {
-//       dispatch({
-//         type: HANDLE_CHANGE_REVIEW,
-//         body: e.target.value,
-//
-//       })
-//     }
-//   )
-// }
-//
-// export const handleRating = (rating) => {
-//   return(
-//     (dispatch) => {
-//       dispatch({
-//         type: HANDLE_RATING,
-//         rating: rating,
-//
-//       })
-//     }
-//   )
-// }
 
 
 export const handleSubmitReview = (e, addData, brandId, itemId) => {

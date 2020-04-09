@@ -5,7 +5,8 @@ import React from 'react';
 import Main from './main.js'
 import Show from './show.js'
 import Cart from './cart.js'
-
+import Makeup from './Makeup.js'
+import Skincare from './Skincare.js'
 
 
 class Routers extends React.Component{
@@ -14,18 +15,20 @@ class Routers extends React.Component{
       <Router>
         <div className="app-container">
           <nav>
-            {
-            //   <Link to='/'>Home</Link>
-            //
-            // <Link to='/cart'>Cart</Link>
-          }
-
 
           </nav>
           <Route path='/' exact component={Main}/>
           <Route path={`/${this.props.item.id}`} component={Show}/>
 
           <Route path='/cart'  component={Cart}/>
+
+
+          <Route path='/makeup'  component={Makeup}/>
+          <Route path='/skincare'  component={Skincare}/>
+
+
+
+
 
 
 

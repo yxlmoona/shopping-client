@@ -6,18 +6,22 @@ import PropTypes from 'prop-types'
 import Show from './show.js'
 import Header from './Header.js'
 import HeaderMain from './HeaderMain.js'
+import { fetchBrands } from '../actions/brandActions.js'
 
 
 class Main extends React.Component{
   componentDidMount(){
+
     this.props.fetchItems();
+    this.props.fetchBrands();
+
   }
   render(){
     return(
       <>
       <Header/>
       <HeaderMain/>
-    <div className='main-container'>
+      <div className='main-container'>
           <h3> Just Arrived </h3>
 
             <div className='main-section-container'>
@@ -25,7 +29,7 @@ class Main extends React.Component{
           {
             this.props.newItems.map((item) => {
               return(
-                <>
+                <div className='main'>
                 <Link to={`/${item.id}`}>
                   <div onClick={() => {
                     return(
@@ -37,10 +41,12 @@ class Main extends React.Component{
                       <h5 id='new'>NEW</h5>
                       <h5>{item.brand.name}</h5>
                       <p>{item.title}</p>
+                      <p>${item.price}.00</p>
+
                     </div>
                   </div>
                 </Link>
-                </>
+                </div>
               )
             })
           }
@@ -118,4 +124,4 @@ const mapStateToProps = (state) => {
 
   })
 }
-export default connect(mapStateToProps,{fetchItems, showItem})(Main);
+export default connect(mapStateToProps,{fetchItems, fetchBrands,showItem})(Main);
