@@ -1,4 +1,4 @@
-import { FETCH_ITEMS, SHOW_ITEM} from  '../actions/types'
+import { FETCH_ITEMS, SHOW_ITEM, HANDLE_SUBMIT_REVIEW} from  '../actions/types'
 
 const initialState = {
   items: [],
@@ -6,9 +6,11 @@ const initialState = {
   popularItems:[],
   expensiveItems:[],
   item: {},
+
 }
 
 const itemReducer = (state = initialState, action) => {
+
   switch (action.type) {
     case FETCH_ITEMS:
       let newItems = []
@@ -43,6 +45,14 @@ const itemReducer = (state = initialState, action) => {
       })
 
 
+
+    case HANDLE_SUBMIT_REVIEW:
+    let copyItem = state.item
+    copyItem.reviews = [action.payload, ...state.item.reviews]
+    return({
+      ...state,
+      item: copyItem
+    })
 
     default:
     return state

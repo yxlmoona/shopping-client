@@ -1,4 +1,4 @@
-import { ADD_TO_CART, HANDLE_CHANGE, HANDLE_REMOVE} from  '../actions/types'
+import { ADD_TO_CART, HANDLE_CHANGE, HANDLE_REMOVE } from  '../actions/types'
 
 
 
@@ -8,7 +8,8 @@ const initialState = {
     itemMain:{},
     count: 0
   },
-  total: 0
+  total: 0,
+
 }
 
 const cartReducer = (state = initialState, action) => {
@@ -62,6 +63,8 @@ const cartReducer = (state = initialState, action) => {
       items: copyItems,
       total: tempTotal
     })
+
+
 
     default:
     return state
