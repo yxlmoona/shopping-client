@@ -7,7 +7,7 @@ export const fetchBrands = () => {
       (async() => {
         try{
 
-          let response = await fetch('http://localhost:3000/brands')
+          let response = await fetch('https://shopping-app-api.herokuapp.com/brands')
           let data = await response.json()
           console.log(data);
           dispatch({
