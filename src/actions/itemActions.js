@@ -5,7 +5,7 @@ export const fetchItems = () => {
     (dispatch) => {
       (async() => {
         try{
-          let response = await fetch('http://localhost:3000/items')
+          let response = await fetch('https://shopping-app-api.herokuapp.com/items')
           let data = await response.json()
           console.log(data);
           dispatch({
@@ -40,7 +40,7 @@ export const handleSubmitReview = (e, addData, brandId, itemId) => {
     (dispatch) => {
       (async () => {
         try{
-          let res = await fetch(`http://localhost:3000/brands/${brandId}/items/${itemId}/reviews`,{
+          let res = await fetch(`https://shopping-app-api.herokuapp.com/brands/${brandId}/items/${itemId}/reviews`,{
             body: JSON.stringify(addData),
             method: 'POST',
             headers: {
