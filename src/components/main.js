@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 import { fetchItems, showItem } from '../actions/itemActions.js'
 import PropTypes from 'prop-types'
 import Show from './show.js'
+import Header from './Header.js'
+import HeaderMain from './HeaderMain.js'
 
 
 class Main extends React.Component{
@@ -13,6 +15,8 @@ class Main extends React.Component{
   render(){
     return(
       <>
+      <Header/>
+      <HeaderMain/>
     <div className='main-container'>
           <h3> Just Arrived </h3>
 

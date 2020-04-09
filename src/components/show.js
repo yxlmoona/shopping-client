@@ -5,6 +5,7 @@ import { addToCart } from '../actions/cartActions.js'
 import Rater from 'react-rater'
 import 'react-rater/lib/react-rater.css'
 import ReviewForm from './reviewForm.js'
+import Header from './Header.js'
 class Show extends React.Component{
   constructor(props){
     super(props)
@@ -27,6 +28,7 @@ class Show extends React.Component{
   render(){
     return(
       <>
+      <Header/>
       <p>{this.props.item.category1} > {this.props.item.category2} > {this.props.item.title} </p>
       <div className='show-container'>
         <img src={this.props.item.image}/>

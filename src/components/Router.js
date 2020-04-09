@@ -14,9 +14,11 @@ class Routers extends React.Component{
       <Router>
         <div className="app-container">
           <nav>
-            <Link to='/'>Home</Link>
-
-            <Link to='/cart'>Cart</Link>
+            {
+            //   <Link to='/'>Home</Link>
+            //
+            // <Link to='/cart'>Cart</Link>
+          }
 
 
           </nav>

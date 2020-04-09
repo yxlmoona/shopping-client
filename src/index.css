@@ -11,7 +11,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
+*{
+  margin: 0;
+  padding: 0;
+}
 
 .main-section-container{
   overflow-x: scroll;
@@ -58,6 +61,111 @@ code {
   margin: 20px auto;
 }
 .cart-container img{
-  width: 20vw;
-  height: 20vh;
+  width: 20px;
+  height: 20px;
+}
+
+.nav-top{
+  display: flex;
+  justify-content: space-between;
+
+}
+.nav-top-right,.nav-main-top{
+  
+  display: flex;
+  justify-content: space-around;
+
+}
+
+
+.nav-top-right img{
+  width: 3vw;
+  height: 3vh;
+  margin: 13px 5px 0 5px;
+  /* border: 0.1em solid red; */
+}
+.nav-top-right p{
+  margin-right: 8px;
+}
+.nav-main {
+  background-color: black;
+  color:white;
+  padding: 10px 0;
+}
+.nav-main-top input {
+  margin: 35px 0;
+  width: 15vw;
+}
+.nav-main-top h1 {
+  margin-top: 25px;
+}
+.nav-main-top h4 {
+  margin-top: 30px;
+}
+.nav-main-top img {
+  width: 7vw;
+  height: 7vh;
+  margin-top: 20px;
+
+}
+.nav-link{
+  justify-content: space-around;
+  display: flex;
+  margin: 5px auto;
+}
+.nav-link a{
+  color: white;
+  text-decoration: none;
+  padding: 0 7px 7px 7px;
+}
+.nav-link a:hover{
+  border-bottom: 0.1em solid white;
+}
+.header-main{
+  background-color: rgb(252, 223, 3);
+  height:60vh;
+
+}
+.header-main h6{
+  text-align: center;
+  font-size: 40px;
+  font-family: 'Playfair Display', serif;
+  padding-top: 2vh;
+
+}
+.header-main-bottom{
+  justify-content: space-around;
+  display: flex;
+}
+.header-main-skin{
+  margin-top: 20px;
+  width: 270px;
+  height: 270px;
+  background: rgb(244, 171, 247);
+}
+.header-main-makeup{
+  margin-top: 20px;
+  width: 270px;
+  height: 270px;
+  background-color: rgb(140, 222, 245);
+}
+.header-main-inner1{
+  margin: 12.5% auto;
+  background-color: rgb(52, 195, 235);
+  width: 200px;
+  height: 200px;
+}
+.header-main-inner1 h1, .header-main-inner2 h1{
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 200px;
+}
+.header-main-inner2{
+  margin: 12.5% auto;
+  width: 200px;
+  height: 200px;
+  background-color: rgb(255, 105, 180);
 }
