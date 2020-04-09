@@ -30,8 +30,8 @@ code {
   margin: 40px 20px;
 }
 .card img{
-  width: 20vw;
-  height: 30vh;
+  width: 150px;
+  height: 150px;
 }
 .card-body{
   text-align: center;
@@ -52,8 +52,9 @@ code {
   justify-content: space-around;
 }
 .show-container img{
-  width: 20vw;
-  height: 20vh;
+
+  width: 150px;
+  height: 150px;
 }
 .cart-container, .cart-container-left, .cart-container-right {
   display: flex;
@@ -61,8 +62,8 @@ code {
   margin: 20px auto;
 }
 .cart-container img{
-  width: 20px;
-  height: 20px;
+  width: 150px;
+  height: 150px;
 }
 
 .nav-top{
@@ -71,7 +72,7 @@ code {
 
 }
 .nav-top-right,.nav-main-top{
-  
+
   display: flex;
   justify-content: space-around;
 
@@ -81,11 +82,12 @@ code {
 .nav-top-right img{
   width: 3vw;
   height: 3vh;
-  margin: 13px 5px 0 5px;
+  margin: 8px 5px 0 5px;
   /* border: 0.1em solid red; */
 }
 .nav-top-right p{
-  margin-right: 8px;
+
+  margin: 8px;
 }
 .nav-main {
   background-color: black;
@@ -123,7 +125,7 @@ code {
 }
 .header-main{
   background-color: rgb(252, 223, 3);
-  height:60vh;
+  height:400px;
 
 }
 .header-main h6{
@@ -138,6 +140,7 @@ code {
   display: flex;
 }
 .header-main-skin{
+
   margin-top: 20px;
   width: 270px;
   height: 270px;
