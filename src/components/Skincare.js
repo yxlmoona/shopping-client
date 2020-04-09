@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Header from './Header.js'
 import { connect } from 'react-redux'
 import { showItem } from '../actions/itemActions.js'
+import { showBrand } from '../actions/brandActions.js'
 
 class Skincare extends React.Component{
   render(){
@@ -23,15 +24,30 @@ class Skincare extends React.Component{
               <p>Face</p>
               <p>Lip</p>
             </div>
+            <h5>Search by category (2)</h5>
+
+            <div className='makeup-type'>
+
+              <Link to='/skincare'><p>Skincare</p></Link>
+              <Link to='/makeup'><p>Makeup</p></Link>
+
+            </div>
             <h5>Search by brand ({this.props.brands.length})</h5>
-            <div className='makeup-brand'>
+            <div className='makeup-type'>
 
               {
                 this.props.brands.map((brand) => {
                   return(
                     <div>
 
-                    <p>{brand} </p>
+                    <Link to={`/${brand}`}>
+                    <p onClick={() => {
+
+                      return(
+                        this.props.showBrand(brand)
+                      )
+                    }}>{brand}</p>
+                    </Link>
 
                     </div>
                   )
@@ -78,7 +94,8 @@ class Skincare extends React.Component{
 const mapStateToProps = (state) => {
   return({
     allSkincare: state.items.allSkincare,
-    brands: state.items.skincareBrands
+    brands: state.items.skincareBrands,
+    allBrands: state.brands.brands
   })
 }
-export default connect(mapStateToProps,{showItem})(Skincare);
+export default connect(mapStateToProps,{showItem, showBrand})(Skincare);

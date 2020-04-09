@@ -7,6 +7,8 @@ import Show from './show.js'
 import Cart from './cart.js'
 import Makeup from './Makeup.js'
 import Skincare from './Skincare.js'
+import Brand from './Brand.js'
+
 
 
 class Routers extends React.Component{
@@ -26,6 +28,7 @@ class Routers extends React.Component{
           <Route path='/makeup'  component={Makeup}/>
           <Route path='/skincare'  component={Skincare}/>
 
+          <Route path={`/${this.props.brand.name}`}  component={Brand}/>
 
 
 
@@ -43,6 +46,7 @@ class Routers extends React.Component{
 const mapStateToProps = (state) => {
   return({
     item: state.items.item,
+    brand: state.brands.brand
   })
 }
 export default connect(mapStateToProps,{})(Routers)

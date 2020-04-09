@@ -73,6 +73,7 @@ class Main extends React.Component{
 
                         <h5>{item.brand.name}</h5>
                         <p>{item.title}</p>
+                        <p>${item.price}.00</p>
                       </div>
                     </div>
                   </Link>
@@ -100,6 +101,7 @@ class Main extends React.Component{
                       <div className='card-body'>
                         <h5>{item.brand.name}</h5>
                         <p>{item.title}</p>
+                        <p>${item.price}.00</p>
                       </div>
                     </div>
                   </Link>

@@ -2,6 +2,9 @@ import React from 'react'
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux'
 import { showItem } from '../actions/itemActions.js'
+import { showBrand } from '../actions/brandActions.js'
+
+import Brand from './Brand.js'
 
 
 import Header from './Header.js'
@@ -27,15 +30,29 @@ class Makeup extends React.Component{
               <p>Face</p>
               <p>Lip</p>
             </div>
+            <h5>Search by category (2)</h5>
+            <div className='makeup-type'>
+
+            <Link to='/skincare'><p>Skincare</p></Link>
+            <Link to='/makeup'><p>Makeup</p></Link>
+
+            </div>
             <h5>Search by brand ({this.props.brands.length})</h5>
-            <div className='makeup-brand'>
+            <div className='makeup-type'>
 
               {
                 this.props.brands.map((brand) => {
                   return(
                     <div>
 
-                    <p>{brand} </p>
+                    <Link to={`/${brand}`}>
+                    <p onClick={() => {
+
+                      return(
+                        this.props.showBrand(brand)
+                      )
+                    }}>{brand}</p>
+                    </Link>
 
                     </div>
                   )
@@ -81,8 +98,9 @@ class Makeup extends React.Component{
 
 const mapStateToProps = (state) => {
   return({
+
     allMakeup: state.items.allMakeup,
-    brands: state.items.makeupBrands
+    brands: state.items.makeupBrands,
   })
 }
-export default connect(mapStateToProps,{showItem})(Makeup);
+export default connect(mapStateToProps,{showItem, showBrand})(Makeup);

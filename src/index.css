@@ -35,7 +35,7 @@ code {
   margin: 10px auto;
 
 }
-.main a{
+.main-section-container a{
   text-decoration: none;
   color: black;
 }
@@ -53,8 +53,8 @@ code {
   padding: 2px;
   position: relative;
   z-index: 1;
-  bottom: 34vh;
-  right: 10vw;
+  bottom: 160px;
+  right: 70px;
 }
 
 .show-container{
@@ -201,7 +201,7 @@ color: black;
 .makeup-card img{
   width: 120px;
   height: 150px;
-  margin: 20px 6vw;
+  margin: 20px 45px;
 }
 .header-link p{
   margin: 20px 20px;
@@ -228,11 +228,10 @@ color: black;
 .makeup-sidebar h5{
   font-size: 15px;
 }
-.makeup-brand{
-  width: 150px;
-}
-.makeup-type, .makeup-brand{
+
+.makeup-type{
   padding: 10px;
   border-top: 0.2em solid black;
+  width: 150px;
 
 }

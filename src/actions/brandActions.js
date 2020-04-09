@@ -1,10 +1,12 @@
-import { FETCH_BRANDS } from './types.js'
+import { FETCH_BRANDS, SHOW_BRAND} from './types.js'
+
+
 export const fetchBrands = () => {
   return(
     (dispatch) => {
       (async() => {
         try{
-        
+
           let response = await fetch('http://localhost:3000/brands')
           let data = await response.json()
           console.log(data);
@@ -16,6 +18,18 @@ export const fetchBrands = () => {
           console.log(e);
         }
       })()
+    }
+  )
+}
+
+export const showBrand = (brand) => {
+  return(
+    (dispatch) => {
+      dispatch({
+        type: SHOW_BRAND,
+        payload: brand
+      })
+
     }
   )
 }

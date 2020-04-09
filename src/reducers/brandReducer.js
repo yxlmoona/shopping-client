@@ -1,13 +1,10 @@
-import { FETCH_BRANDS } from  '../actions/types'
+import { FETCH_BRANDS, SHOW_BRAND } from  '../actions/types'
 
 const initialState = {
   brands: [],
   featuredBrands:[],
 
-  brand: {
-    name:{},
-    desc: 0
-  }
+  brand: {}
 
 }
 
@@ -23,6 +20,17 @@ const brandReducer = (state = initialState, action) => {
       ...state,
       brands: action.payload,
       featuredBrands: state.featuredBrands
+    })
+  case SHOW_BRAND:
+    let showBrand = {}
+    for(let brand of state.brands){
+      if(brand.name == action.payload){
+        showBrand = brand
+      }
+    }
+    return({
+      ...state,
+      brand: showBrand
     })
 
     default:
