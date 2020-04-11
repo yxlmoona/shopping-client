@@ -43,10 +43,15 @@ code {
   width: 150px;
   height: 150px;
 }
-.card-body{
+.card-body {
   text-align: center;
+  /* border: 0.1em solid red; */
+  /* height: 500px; */
+  margin: 40px auto;
 }
-
+.card-body h5{
+  margin: 0px;
+}
 .cart h3{
   margin: 20px 55px;
 
@@ -375,7 +380,7 @@ code {
 .dropdown:hover .dropdown-content {
   display: flex;
   justify-content: space-around;
-  margin: 10px -300px;
+  margin: 10px -20vw;
 
 
 }
@@ -444,7 +449,7 @@ color: black;
   height: 270px;
   width: 200px;
   /* border: 0.1em solid red; */
-
+  margin-bottom: 130px;
 }
 .makeup-card img{
   width: 120px;
