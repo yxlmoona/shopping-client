@@ -45,7 +45,6 @@ class Show extends React.Component{
 
         </div>
         <div>
-
           {
             this.props.item.sprice
             ?  (<div><h5 id='sprice'>{`$${this.props.item.sprice}`}</h5>
@@ -55,7 +54,10 @@ class Show extends React.Component{
 
 
           <h5>SPEND $100 FOR FREE SHIPPING</h5>
-          <form onSubmit={(e) => {
+        </div>
+        <div className='show-right'>
+
+          <form className='show-form' onSubmit={(e) => {
             this.props.addToCart(e, this.props.item, parseInt(this.state.value))
           }}>
             <select count={this.state.value} onChange={this.handleChange}>
@@ -67,29 +69,35 @@ class Show extends React.Component{
             </select>
             <input type="submit" value='ADD TO BASKET'/>
           </form>
+
           <button onClick={() => {
             this.props.addLove(this.props.item.brand.id ,this.props.item)
           }}>♡  ADD TO LOVES</button>
 
         </div>
 
-      </div>
-      <p>{this.props.item.body}</p>
-      <h3>Ratings & Reviews</h3>
-      <button onClick={() => {
-        this.toggleForm()
-      }}>ADD A REVIEW</button>
-      {
-        this.state.showForm
-        ? <ReviewForm/>
-        :''
 
-      }
+      </div>
+      <div className='show-body'>
+        <h3>Details</h3>
+        <p>{this.props.item.body}</p>
+        <h3>Ratings & Reviews</h3>
+        <button onClick={() => {
+          this.toggleForm()
+        }}>ADD A REVIEW</button>
+        {
+          this.state.showForm
+          ? <ReviewForm/>
+          :''
+
+        }
+      </div>
+
 
       <div>
         {this.props.reviews.map((review) => {
           return(
-            <div>
+            <div className='show-reviews'>
               <h6>{review.body}  </h6>
               <Rater total={5} rating={review.rating} interactive={false}/>
             </div>

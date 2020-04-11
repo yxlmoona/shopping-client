@@ -99,7 +99,8 @@ export const handleView = (view) => {
     (dispatch) => {
       dispatch({
         type: HANDLE_VIEW,
-        payload: view
+        payload: view,
+        
       })
 
     }

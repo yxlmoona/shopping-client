@@ -13,7 +13,7 @@ class Elf extends React.Component{
       <>
         <Header/>
         <div className='header-link'>
-          <p><Link to={`/`}>home</Link> > eye </p>
+          <p><Link to={`/`}>home</Link> > {this.props.viewTitle} </p>
           <p> {this.props.items.length} products</p>
         </div>
         <div className='makeup'>
@@ -88,7 +88,13 @@ class Elf extends React.Component{
 
                       <h5>{makeup.brand.name}</h5>
                       <p>{makeup.title}</p>
-                      <p>${makeup.price}.00</p>
+                      {
+                      makeup.sprice
+                      ?  (<div><h5 id='sprice'>{`$${makeup.sprice}.00`}</h5>
+                          <h5 id = 'price'>{`$${makeup.price}.00`}</h5></div>)
+                      : <h5>{`$${makeup.price}.00`}</h5>
+
+                      }
                     </div>
                   </div>
                 </Link>
@@ -109,7 +115,8 @@ class Elf extends React.Component{
 const mapStateToProps = (state) => {
   return({
     brands: state.brands.brands,
-    items: state.items.itemView
+    items: state.items.itemView,
+    viewTitle: state.items.viewTitle
   })
 }
 export default connect(mapStateToProps,{showItem, showBrand,handleView})(Elf);

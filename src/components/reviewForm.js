@@ -23,7 +23,7 @@ class ReviewForm extends React.Component{
 
   render(){
     return(
-      <>
+      <div className="review-form">
 
      <h3>Rate this product</h3>
         <Rater total={5} rating={this.state.rating} onRating={(rating) => {
@@ -43,13 +43,13 @@ class ReviewForm extends React.Component{
 
           <input onChange={(e) => {
             this.onChange(e)
-          }} type="text" placeholder="Write your review" value={this.state.body}/>
+          }} type="textbox" placeholder="Write your review..." value={this.state.body}/>
           <input type="hidden" value={this.state.rating}/>
 
           <input type="submit" value="submit"/>
 
         </form>
-      </>
+      </div>
 
     )
   }

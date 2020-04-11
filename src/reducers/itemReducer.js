@@ -10,8 +10,8 @@ const initialState = {
   item: {},
   makeupBrands:[],
   skincareBrands:[],
-  saleItems:[],
-  itemView:[]
+  itemView:[],
+  viewTitle:''
 }
 
 const itemReducer = (state = initialState, action) => {
@@ -24,13 +24,7 @@ const itemReducer = (state = initialState, action) => {
           newItems.push(item)
         }
       }
-      let saleItems = []
-      for(let item of action.payload){
 
-        if(item.sprice != null){
-          saleItems.push(item)
-        }
-      }
       let popularItems = []
       for(let item of action.payload){
         if(item.sales > 460){
@@ -43,24 +37,7 @@ const itemReducer = (state = initialState, action) => {
           expensiveItems.push(item)
         }
       }
-      // let eye = []
-      // for(let item of action.payload){
-      //   if(item.category2 == "eye"){
-      //     eye.push(item)
-      //   }
-      // }
-      // let face = []
-      // for(let item of action.payload){
-      //   if(item.category2 == "face"){
-      //     face.push(item)
-      //   }
-      // }
-      // let lip = []
-      // for(let item of action.payload){
-      //   if(item.category2 == "lip"){
-      //     lip.push(item)
-      //   }
-      // }
+
 
       let allMakeup = []
       let makeupBrands = []
@@ -97,7 +74,7 @@ const itemReducer = (state = initialState, action) => {
         allSkincare: allSkincare,
         makeupBrands: makeupBrands,
         skincareBrands: skincareBrands,
-        saleItems: saleItems,
+
 
       })
 
@@ -130,8 +107,9 @@ const itemReducer = (state = initialState, action) => {
 
     case HANDLE_VIEW:
     let itemView = []
+    let viewTitle = ''
     if(action.payload == 'eye'){
-
+      viewTitle = 'eye'
       for(let item of state.items){
         if(item.category2 == "eye"){
           itemView.push(item)
@@ -139,12 +117,21 @@ const itemReducer = (state = initialState, action) => {
       }
 
     }else if(action.payload == 'face'){
+      viewTitle = 'face'
       for(let item of state.items){
         if(item.category2 == "face"){
           itemView.push(item)
         }
       }
+    }else if(action.payload == 'sale'){
+      viewTitle = 'sale'
+      for(let item of state.items){
+        if(item.sprice != null){
+          itemView.push(item)
+        }
+      }
     }else{
+      viewTitle = 'lip'
       for(let item of state.items){
         if(item.category2 == "lip"){
           itemView.push(item)
@@ -154,7 +141,8 @@ const itemReducer = (state = initialState, action) => {
 
     return({
       ...state,
-      itemView: itemView
+      itemView: itemView,
+      viewTitle: viewTitle
     })
 
     default:
