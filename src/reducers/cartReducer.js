@@ -23,7 +23,7 @@ const cartReducer = (state = initialState, action) => {
       for(let item of state.items){
         if(item.itemMain.id == action.payload.id){
           item.itemMain = action.payload
-          item.count = item.count + action.count
+          item.count = parseInt(item.count) + parseInt(action.count)
           return({
             ...state,
             items: [...state.items],

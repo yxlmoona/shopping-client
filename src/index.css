@@ -98,7 +98,7 @@ code {
 .cart-right-top{
   display: flex;
   justify-content: space-around;
-  margin-left: 100px;
+  margin-left: 60px;
   width: 150px;
   /* border: 0.1em solid red; */
 }
@@ -157,7 +157,7 @@ code {
   padding: 2px;
   position: relative;
   z-index: 1;
-  bottom: 160px;
+  bottom: 200px;
   right: 70px;
 }
 
@@ -269,6 +269,9 @@ code {
   justify-content: space-around;
   margin: 20px auto;
 
+}
+.cart >h3{
+  width: 100%;
 }
 .cart-container-right > div{
   /* border: 0.1em solid red */
