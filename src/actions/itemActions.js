@@ -1,4 +1,4 @@
-import { FETCH_ITEMS, SHOW_ITEM, HANDLE_SUBMIT_REVIEW } from './types.js'
+import { FETCH_ITEMS, SHOW_ITEM, HANDLE_SUBMIT_REVIEW, ADD_LOVE } from './types.js'
 
 export const fetchItems = () => {
   return(
@@ -53,6 +53,36 @@ export const handleSubmitReview = (e, addData, brandId, itemId) => {
           dispatch({
             type: HANDLE_SUBMIT_REVIEW,
             payload: data
+          })
+        }catch(e){
+          console.log(e);
+        }
+
+      })()
+
+    }
+  )
+}
+
+export const addLove = (brandId, item) => {
+
+  return(
+    (dispatch) => {
+      (async () => {
+        try{
+          let res = await fetch(`https://shopping-app-api.herokuapp.com/brands/${brandId}/items/${item.id}`,{
+            body: JSON.stringify({loves: parseInt(item.loves) + 1}),
+            method: 'PUT',
+            headers: {
+              'Accept': 'application/json, text/plain, */*',
+              'Content-Type': 'application/json'
+            }
+          })
+          let data = await res.json()
+          console.log(data);
+          dispatch({
+            type: ADD_LOVE,
+            payload: data.loves
           })
         }catch(e){
           console.log(e);

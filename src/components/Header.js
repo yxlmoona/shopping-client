@@ -32,7 +32,7 @@ class Header extends React.Component{
               <Link to='/'>HOME</Link>
               <Link to='/'>BRANDS</Link>
               <Link to='/'>GIFT</Link>
-              <Link to='/'>SALE</Link>
+              <Link to='/sale'>SALE</Link>
               <Link to='/cart'>Cart</Link>
             </div>
           </div>

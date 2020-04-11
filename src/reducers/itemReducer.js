@@ -1,4 +1,4 @@
-import { FETCH_ITEMS, SHOW_ITEM, HANDLE_SUBMIT_REVIEW} from  '../actions/types'
+import { FETCH_ITEMS, SHOW_ITEM, HANDLE_SUBMIT_REVIEW, ADD_LOVE} from  '../actions/types'
 
 const initialState = {
   items: [],
@@ -9,17 +9,25 @@ const initialState = {
   allSkincare:[],
   item: {},
   makeupBrands:[],
-  skincareBrands:[]
-
+  skincareBrands:[],
+  saleItems:[]
 }
 
 const itemReducer = (state = initialState, action) => {
+  let copyItem = state.item
   switch (action.type) {
     case FETCH_ITEMS:
       let newItems = []
       for(let item of action.payload){
         if(item.year == 2020){
           newItems.push(item)
+        }
+      }
+      let saleItems = []
+      for(let item of action.payload){
+
+        if(item.sprice != null){
+          saleItems.push(item)
         }
       }
       let popularItems = []
@@ -68,10 +76,11 @@ const itemReducer = (state = initialState, action) => {
         allMakeup: allMakeup,
         allSkincare: allSkincare,
         makeupBrands: makeupBrands,
-        skincareBrands: skincareBrands
-
+        skincareBrands: skincareBrands,
+        saleItems: saleItems
       })
     case SHOW_ITEM:
+      console.log(action.payload);
       return({
         ...state,
         item: action.payload
@@ -80,8 +89,16 @@ const itemReducer = (state = initialState, action) => {
 
 
     case HANDLE_SUBMIT_REVIEW:
-    let copyItem = state.item
+
     copyItem.reviews = [action.payload, ...state.item.reviews]
+    return({
+      ...state,
+      item: copyItem
+    })
+
+    case ADD_LOVE:
+
+    copyItem.loves = action.payload
     return({
       ...state,
       item: copyItem

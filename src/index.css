@@ -46,6 +46,103 @@ code {
 .card-body{
   text-align: center;
 }
+
+.cart h3{
+  margin: 20px 55px;
+
+
+}
+.cart-decoration, .cart-container-{
+  display: flex;
+  justify-content: space-between;
+  margin: 0px 30px;
+}
+.cart-main-outer{
+  background-color: silver;
+  margin: 30px;
+
+}
+.cart-container{
+  width: 550px;
+  height: 200px;
+  border-bottom: 0.1em solid silver;
+  padding: 0px 30px;
+
+}
+.cart-main-outer h3{
+  padding-top: 20px;
+}
+.cart-main-inner{
+  /* border: 0.1em solid silver; */
+  margin: 20px;
+
+  background-color: white;
+
+}
+.cart-decoration p{
+  border: 0.1em solid silver;
+  width: 210px;
+  text-align: center;
+  padding: 10px 30px;
+}
+.cart-container-left{
+  width: 350px;
+  /* border: 0.1em solid red; */
+}
+
+.cart-right-top{
+  display: flex;
+  justify-content: space-around;
+  /* border: 0.1em solid red; */
+}
+.cart-container-right{
+  display: flex;
+  flex-direction: column;
+  /* border: 0.1em solid red; */
+}
+.cart-container-right h6{
+  margin-left: 30px;
+}
+.cart-container-right select{
+  margin: 30px;
+  height: 30px;
+  width: 50px;
+
+
+}
+
+.cart-checkout{
+  border: 0.1em solid silver;
+  width: 350px;
+  height: 350px;
+}
+.cart-checkout h3{
+  margin: 20px 20px;
+}
+.checkout-form {
+
+  text-align: center;
+}
+.checkout-form > input{
+  height: 50px;
+  width: 220px;
+  background-color: rgb(222, 9, 48);
+  text-align: center;
+  margin: 20px auto;
+  font-size: 20px;
+  color: white;
+  border-radius: 5px;
+
+
+}
+.cart-checkout-top{
+  border-bottom: 0.1em solid silver;
+  padding: 15px;
+
+}
+.cart-checkout-top p{
+  margin: 20px 0;
+}
 #new{
   background-color: black;
   color:white;
@@ -66,16 +163,29 @@ code {
   width: 150px;
   height: 150px;
 }
-.cart-container, .cart-container-left, .cart-container-right {
+.cart-container,.cart-container-left ,.cart-container-right {
   display: flex;
   justify-content: space-around;
   margin: 20px auto;
 }
+
 .cart-container img{
   width: 150px;
   height: 150px;
+  /* border: 0.1em solid red */
 }
+.cart-container-left > div{
+  width: 120px;
+  text-align: center;
+  /* border: 0.1em solid red; */
 
+}
+.cart-container-left h3{
+  /* border: 0.1em solid red; */
+  width: 120px;
+  margin-left: -4px;
+
+}
 .nav-top{
   display: flex;
   justify-content: space-between;
@@ -209,7 +319,7 @@ color: black;
 }
 .makeup{
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
 }
 .makeup p{
   margin: 10px auto;
@@ -234,4 +344,11 @@ color: black;
   border-top: 0.2em solid black;
   width: 150px;
 
+}
+#price{
+  text-decoration: line-through;
+
+}
+#sprice{
+  color: red
 }

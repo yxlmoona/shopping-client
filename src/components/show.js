@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 
 import PropTypes from 'prop-types'
 import { addToCart } from '../actions/cartActions.js'
+import { addLove } from '../actions/itemActions.js'
+
 import Rater from 'react-rater'
 import 'react-rater/lib/react-rater.css'
 import ReviewForm from './reviewForm.js'
@@ -39,11 +41,19 @@ class Show extends React.Component{
         <div>
           <h3>{this.props.item.brand.name}</h3>
           <h4>{this.props.item.title}</h4>
-          <h5>{this.props.item.reviews.length}  reviews | ❤️ xx loves</h5>
+          <h5>{this.props.item.reviews.length}  reviews | ❤️ {this.props.item.loves} loves</h5>
 
         </div>
         <div>
-          <h5>{`$${this.props.item.price}`}</h5>
+
+          {
+            this.props.item.sprice
+            ?  (<div><h5 id='sprice'>{`$${this.props.item.sprice}`}</h5>
+                <h5 id = 'price'>{`$${this.props.item.price}`}</h5></div>)
+            : <h5>{`$${this.props.item.price}`}</h5>
+          }
+
+
           <h5>SPEND $100 FOR FREE SHIPPING</h5>
           <form onSubmit={(e) => {
             this.props.addToCart(e, this.props.item, parseInt(this.state.value))
@@ -57,7 +67,9 @@ class Show extends React.Component{
             </select>
             <input type="submit" value='ADD TO BASKET'/>
           </form>
-          <button>♡  ADD TO LOVES</button>
+          <button onClick={() => {
+            this.props.addLove(this.props.item.brand.id ,this.props.item)
+          }}>♡  ADD TO LOVES</button>
 
         </div>
 
@@ -95,9 +107,10 @@ class Show extends React.Component{
 const mapStateToProps = (state) => {
   return({
     item: state.items.item,
-    reviews: state.items.item.reviews
+    reviews: state.items.item.reviews,
+    loves: state.items.item.loves
   })
 }
 
 
-export default connect(mapStateToProps,{addToCart})(Show)
+export default connect(mapStateToProps,{addToCart, addLove})(Show)

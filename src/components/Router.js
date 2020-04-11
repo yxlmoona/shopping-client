@@ -8,6 +8,7 @@ import Cart from './cart.js'
 import Makeup from './Makeup.js'
 import Skincare from './Skincare.js'
 import Brand from './Brand.js'
+import Sale from './Sale.js'
 
 
 
@@ -29,6 +30,7 @@ class Routers extends React.Component{
           <Route path='/skincare'  component={Skincare}/>
 
           <Route path={`/${this.props.brand.name}`}  component={Brand}/>
+          <Route path='/sale'  component={Sale}/>
 
 
 

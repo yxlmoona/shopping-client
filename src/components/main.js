@@ -41,7 +41,15 @@ class Main extends React.Component{
                       <h5 id='new'>NEW</h5>
                       <h5>{item.brand.name}</h5>
                       <p>{item.title}</p>
-                      <p>${item.price}.00</p>
+                      {
+                      item.sprice
+                      ?  (<div><h5 id='sprice'>{`$${item.sprice}`}</h5>
+                          <h5 id = 'price'>{`$${item.price}`}</h5></div>)
+                      : <h5>{`$${item.price}`}</h5>
+
+                      }
+
+
 
                     </div>
                   </div>
@@ -73,7 +81,14 @@ class Main extends React.Component{
 
                         <h5>{item.brand.name}</h5>
                         <p>{item.title}</p>
-                        <p>${item.price}.00</p>
+                        {
+                        item.sprice
+                        ?  (<div><h5 id='sprice'>{`$${item.sprice}`}</h5>
+                            <h5 id = 'price'>{`$${item.price}`}</h5></div>)
+                        : <h5>{`$${item.price}`}</h5>
+
+                        }
+
                       </div>
                     </div>
                   </Link>
@@ -101,7 +116,14 @@ class Main extends React.Component{
                       <div className='card-body'>
                         <h5>{item.brand.name}</h5>
                         <p>{item.title}</p>
-                        <p>${item.price}.00</p>
+                        {
+                        item.sprice
+                        ?  (<div><h5 id='sprice'>{`$${item.sprice}`}</h5>
+                            <h5 id = 'price'>{`$${item.price}`}</h5></div>)
+                        : <h5>{`$${item.price}`}</h5>
+
+                        }
+
                       </div>
                     </div>
                   </Link>

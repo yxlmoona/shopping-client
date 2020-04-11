@@ -73,7 +73,12 @@ class Skincare extends React.Component{
 
                       <h5>{skincare.brand.name}</h5>
                       <p>{skincare.title}</p>
-                      <p>${skincare.price}.00</p>
+                      {
+                        skincare.sprice
+                        ?  (<div><h5 id='sprice'>{`$${skincare.sprice}.00`}</h5>
+                            <h5 id = 'price'>{`$${skincare.price}.00`}</h5></div>)
+                        : <h5>{`$${skincare.price}.00`}</h5>
+                      }
                     </div>
                   </div>
                 </Link>
