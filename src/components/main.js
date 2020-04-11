@@ -43,9 +43,9 @@ class Main extends React.Component{
                       <p>{item.title}</p>
                       {
                       item.sprice
-                      ?  (<div><h5 id='sprice'>{`$${item.sprice}`}</h5>
-                          <h5 id = 'price'>{`$${item.price}`}</h5></div>)
-                      : <h5>{`$${item.price}`}</h5>
+                      ?  (<div><h5 id='sprice'>{`$${item.sprice}.00`}</h5>
+                          <h5 id = 'price'>{`$${item.price}.00`}</h5></div>)
+                      : <h5>{`$${item.price}.00`}</h5>
 
                       }
 
@@ -83,9 +83,9 @@ class Main extends React.Component{
                         <p>{item.title}</p>
                         {
                         item.sprice
-                        ?  (<div><h5 id='sprice'>{`$${item.sprice}`}</h5>
-                            <h5 id = 'price'>{`$${item.price}`}</h5></div>)
-                        : <h5>{`$${item.price}`}</h5>
+                        ?  (<div><h5 id='sprice'>{`$${item.sprice}.00`}</h5>
+                            <h5 id = 'price'>{`$${item.price}.00`}</h5></div>)
+                        : <h5>{`$${item.price}.00`}</h5>
 
                         }
 
@@ -118,9 +118,9 @@ class Main extends React.Component{
                         <p>{item.title}</p>
                         {
                         item.sprice
-                        ?  (<div><h5 id='sprice'>{`$${item.sprice}`}</h5>
-                            <h5 id = 'price'>{`$${item.price}`}</h5></div>)
-                        : <h5>{`$${item.price}`}</h5>
+                        ?  (<div><h5 id='sprice'>{`$${item.sprice}.00`}</h5>
+                            <h5 id = 'price'>{`$${item.price}.00`}</h5></div>)
+                        : <h5>{`$${item.price}.00`}</h5>
 
                         }
 

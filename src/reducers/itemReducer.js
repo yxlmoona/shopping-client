@@ -1,4 +1,4 @@
-import { FETCH_ITEMS, SHOW_ITEM, HANDLE_SUBMIT_REVIEW, ADD_LOVE} from  '../actions/types'
+import { FETCH_ITEMS, SHOW_ITEM, HANDLE_SUBMIT_REVIEW, ADD_LOVE, HANDLE_VIEW} from  '../actions/types'
 
 const initialState = {
   items: [],
@@ -10,7 +10,8 @@ const initialState = {
   item: {},
   makeupBrands:[],
   skincareBrands:[],
-  saleItems:[]
+  saleItems:[],
+  itemView:[]
 }
 
 const itemReducer = (state = initialState, action) => {
@@ -42,6 +43,25 @@ const itemReducer = (state = initialState, action) => {
           expensiveItems.push(item)
         }
       }
+      // let eye = []
+      // for(let item of action.payload){
+      //   if(item.category2 == "eye"){
+      //     eye.push(item)
+      //   }
+      // }
+      // let face = []
+      // for(let item of action.payload){
+      //   if(item.category2 == "face"){
+      //     face.push(item)
+      //   }
+      // }
+      // let lip = []
+      // for(let item of action.payload){
+      //   if(item.category2 == "lip"){
+      //     lip.push(item)
+      //   }
+      // }
+
       let allMakeup = []
       let makeupBrands = []
 
@@ -77,8 +97,11 @@ const itemReducer = (state = initialState, action) => {
         allSkincare: allSkincare,
         makeupBrands: makeupBrands,
         skincareBrands: skincareBrands,
-        saleItems: saleItems
+        saleItems: saleItems,
+
       })
+
+
     case SHOW_ITEM:
       console.log(action.payload);
       return({
@@ -102,6 +125,36 @@ const itemReducer = (state = initialState, action) => {
     return({
       ...state,
       item: copyItem
+    })
+
+
+    case HANDLE_VIEW:
+    let itemView = []
+    if(action.payload == 'eye'){
+
+      for(let item of state.items){
+        if(item.category2 == "eye"){
+          itemView.push(item)
+        }
+      }
+
+    }else if(action.payload == 'face'){
+      for(let item of state.items){
+        if(item.category2 == "face"){
+          itemView.push(item)
+        }
+      }
+    }else{
+      for(let item of state.items){
+        if(item.category2 == "lip"){
+          itemView.push(item)
+        }
+      }
+    }
+
+    return({
+      ...state,
+      itemView: itemView
     })
 
     default:

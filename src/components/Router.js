@@ -9,6 +9,7 @@ import Makeup from './Makeup.js'
 import Skincare from './Skincare.js'
 import Brand from './Brand.js'
 import Sale from './Sale.js'
+import Elf from './Elf.js'
 
 
 
@@ -31,6 +32,9 @@ class Routers extends React.Component{
 
           <Route path={`/${this.props.brand.name}`}  component={Brand}/>
           <Route path='/sale'  component={Sale}/>
+          <Route path='/eye'  component={Elf}/>
+          <Route path='/face'  component={Elf}/>
+          <Route path='/lip'  component={Elf}/>
 
 
 

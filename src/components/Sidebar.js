@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux'
-import { showItem } from '../actions/itemActions.js'
+import { showItem, handleView } from '../actions/itemActions.js'
 import { showBrand } from '../actions/brandActions.js'
 
 
@@ -17,10 +17,21 @@ class Sidebar extends React.Component{
             <h5>See all ({this.props.brand.items.length})</h5>
             <h5>Search by type (3)</h5>
             <div className='makeup-type'>
-
-              <p>Eye</p>
-              <p>Face</p>
-              <p>Lip</p>
+              <Link to={`/eye`}>
+                <p onClick={() => {
+                  this.props.handleView('eye')
+                }}>Eye</p>
+              </Link>
+              <Link to={`/face`}>
+                <p onClick={() => {
+                  this.props.handleView('face')
+                }}>Face</p>
+              </Link>
+              <Link to={`/lip`}>
+                <p onClick={() => {
+                  this.props.handleView('lip')
+                }}>Lip</p>
+              </Link>
             </div>
             <h5>Search by category (2)</h5>
 
@@ -55,7 +66,7 @@ class Sidebar extends React.Component{
             </div>
           </div>
 
-      
+
 
 
       </>
@@ -70,4 +81,4 @@ const mapStateToProps = (state) => {
     brand: state.brands.brand
   })
 }
-export default connect(mapStateToProps,{showItem, showBrand})(Sidebar);
+export default connect(mapStateToProps,{showItem, showBrand, handleView})(Sidebar);

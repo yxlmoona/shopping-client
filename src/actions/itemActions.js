@@ -1,4 +1,4 @@
-import { FETCH_ITEMS, SHOW_ITEM, HANDLE_SUBMIT_REVIEW, ADD_LOVE } from './types.js'
+import { FETCH_ITEMS, SHOW_ITEM, HANDLE_SUBMIT_REVIEW, ADD_LOVE, HANDLE_VIEW } from './types.js'
 
 export const fetchItems = () => {
   return(
@@ -89,6 +89,18 @@ export const addLove = (brandId, item) => {
         }
 
       })()
+
+    }
+  )
+}
+
+export const handleView = (view) => {
+  return(
+    (dispatch) => {
+      dispatch({
+        type: HANDLE_VIEW,
+        payload: view
+      })
 
     }
   )
