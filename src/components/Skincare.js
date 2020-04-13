@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from "react-router-dom";
 import Header from './Header.js'
 import { connect } from 'react-redux'
-import { showItem, handleView } from '../actions/itemActions.js'
+import { showItem, handleView, handleChangeMode} from '../actions/itemActions.js'
 import { showBrand } from '../actions/brandActions.js'
 
 class Skincare extends React.Component{
@@ -13,6 +13,19 @@ class Skincare extends React.Component{
         <div className='header-link'>
           <p><Link to={`/`}>home</Link> > allSkincare</p>
           <p> {this.props.allSkincare.length} products</p>
+          <p>
+            <form>
+              <select onChange={(e) => {
+                this.props.handleChangeMode(e.target.value,'skincare')
+              }}>
+                <option value='origin'>--  Select  --</option>
+                <option value='Lowest'>Lowest Price First</option>
+                <option value='Highest'>Highest Price First</option>
+                <option value='Best'>Best Seller First</option>
+
+              </select>
+            </form>
+          </p>
         </div>
         <div className='makeup'>
           <div className='makeup-sidebar'>
@@ -115,4 +128,4 @@ const mapStateToProps = (state) => {
     allBrands: state.brands.brands
   })
 }
-export default connect(mapStateToProps,{showItem, showBrand,handleView})(Skincare);
+export default connect(mapStateToProps,{showItem, showBrand,handleView, handleChangeMode})(Skincare);

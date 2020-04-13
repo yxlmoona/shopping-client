@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux'
-import { showItem, handleView } from '../actions/itemActions.js'
+import { showItem, handleView, handleChangeMode } from '../actions/itemActions.js'
 import { showBrand } from '../actions/brandActions.js'
 import Header from './Header.js'
 
@@ -15,6 +15,19 @@ class Elf extends React.Component{
         <div className='header-link'>
           <p><Link to={`/`}>home</Link> > {this.props.viewTitle} </p>
           <p> {this.props.items.length} products</p>
+          <p>
+            <form>
+              <select onChange={(e) => {
+                this.props.handleChangeMode(e.target.value,this.props.viewTitle)
+              }}>
+                <option value='origin'>--  Select  --</option>
+                <option value='Lowest'>Lowest Price First</option>
+                <option value='Highest'>Highest Price First</option>
+                <option value='Best'>Best Seller First</option>
+
+              </select>
+            </form>
+          </p>
         </div>
         <div className='makeup'>
 
@@ -119,4 +132,4 @@ const mapStateToProps = (state) => {
     viewTitle: state.items.viewTitle
   })
 }
-export default connect(mapStateToProps,{showItem, showBrand,handleView})(Elf);
+export default connect(mapStateToProps,{showItem, showBrand,handleView, handleChangeMode})(Elf);

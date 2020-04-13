@@ -1,4 +1,4 @@
-import { FETCH_ITEMS, SHOW_ITEM, HANDLE_SUBMIT_REVIEW, ADD_LOVE, HANDLE_VIEW} from  '../actions/types'
+import { FETCH_ITEMS, SHOW_ITEM, HANDLE_SUBMIT_REVIEW, ADD_LOVE, HANDLE_VIEW, HANDLE_CHANGE_MODE} from  '../actions/types'
 
 const initialState = {
   items: [],
@@ -143,6 +143,74 @@ const itemReducer = (state = initialState, action) => {
       ...state,
       itemView: itemView,
       viewTitle: viewTitle
+    })
+
+    case HANDLE_CHANGE_MODE:
+    let allMakeupCopy = [...state.allMakeup]
+    let allSkincareCopy = [...state.allSkincare]
+    let allItemViewCopy = [...state.itemView]
+
+    if(action.category == 'makeup'){
+
+      if(action.view == 'Lowest'){
+        allMakeupCopy.sort((a,b) => {
+          return a.price - b.price
+        })
+      }else if(action.view == 'Highest'){
+        allMakeupCopy.sort((a,b) => {
+          return b.price - a.price
+        })
+      }else if(action.view == 'origin'){
+        allMakeupCopy.sort((a,b) => {
+          return a.id - b.id
+        })
+      }else{
+        allMakeupCopy.sort((a,b) => {
+          return b.sales - a.sales
+        })
+      }
+    }else if(action.category == 'skincare'){
+      if(action.view == 'Lowest'){
+        allSkincareCopy.sort((a,b) => {
+          return a.price - b.price
+        })
+      }else if(action.view == 'Highest'){
+        allSkincareCopy.sort((a,b) => {
+          return b.price - a.price
+        })
+      }else if(action.view == 'origin'){
+        allSkincareCopy.sort((a,b) => {
+          return a.id - b.id
+        })
+      }else{
+        allSkincareCopy.sort((a,b) => {
+          return b.sales - a.sales
+        })
+      }
+    }else{
+      if(action.view == 'Lowest'){
+        allItemViewCopy.sort((a,b) => {
+          return a.price - b.price
+        })
+      }else if(action.view == 'Highest'){
+        allItemViewCopy.sort((a,b) => {
+          return b.price - a.price
+        })
+      }else if(action.view == 'origin'){
+        allItemViewCopy.sort((a,b) => {
+          return a.id - b.id
+        })
+      }else{
+        allItemViewCopy.sort((a,b) => {
+          return b.sales - a.sales
+        })
+      }
+    }
+    return({
+      ...state,
+      allMakeup: allMakeupCopy,
+      allSkincare: allSkincareCopy,
+      itemView: allItemViewCopy
     })
 
     default:

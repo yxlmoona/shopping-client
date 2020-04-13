@@ -1,4 +1,4 @@
-import { FETCH_ITEMS, SHOW_ITEM, HANDLE_SUBMIT_REVIEW, ADD_LOVE, HANDLE_VIEW } from './types.js'
+import { FETCH_ITEMS, SHOW_ITEM, HANDLE_SUBMIT_REVIEW, ADD_LOVE, HANDLE_VIEW, HANDLE_CHANGE_MODE } from './types.js'
 
 export const fetchItems = () => {
   return(
@@ -100,7 +100,25 @@ export const handleView = (view) => {
       dispatch({
         type: HANDLE_VIEW,
         payload: view,
-        
+
+      })
+
+    }
+  )
+}
+
+
+export const handleChangeMode = (view, category) => {
+
+  console.log(view);
+  console.log(category);
+  return(
+
+    (dispatch) => {
+      dispatch({
+        type: HANDLE_CHANGE_MODE,
+        view: view,
+        category: category
       })
 
     }

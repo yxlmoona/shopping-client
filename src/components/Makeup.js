@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux'
-import { showItem, handleView } from '../actions/itemActions.js'
+import { showItem, handleView, handleChangeMode } from '../actions/itemActions.js'
 import { showBrand } from '../actions/brandActions.js'
 
 import Brand from './Brand.js'
@@ -10,6 +10,16 @@ import Brand from './Brand.js'
 import Header from './Header.js'
 
 class Makeup extends React.Component{
+  constructor(props){
+    super(props)
+    this.state = {
+      mode: '',
+
+    }
+
+  }
+
+
 
 
   render(){
@@ -19,6 +29,19 @@ class Makeup extends React.Component{
         <div className='header-link'>
           <p><Link to={`/`}>home</Link> > allMakeup</p>
           <p> {this.props.allMakeup.length} products</p>
+          <p>
+            <form>
+              <select onChange={(e) => {
+                this.props.handleChangeMode(e.target.value,'makeup')
+              }}>
+                <option value='origin'>--  Select  --</option>
+                <option value='Lowest'>Lowest Price First</option>
+                <option value='Highest'>Highest Price First</option>
+                <option value='Best'>Best Seller First</option>
+
+              </select>
+            </form>
+          </p>
         </div>
         <div className='makeup'>
           <div className='makeup-sidebar'>
@@ -53,9 +76,9 @@ class Makeup extends React.Component{
             <div className='makeup-type'>
 
               {
-                this.props.brands.map((brand) => {
+                this.props.brands.map((brand, i) => {
                   return(
-                    <div>
+                    <div key={i}>
 
                     <Link to={`/${brand}`}>
                     <p onClick={() => {
@@ -123,4 +146,4 @@ const mapStateToProps = (state) => {
     brands: state.items.makeupBrands,
   })
 }
-export default connect(mapStateToProps,{showItem, showBrand, handleView})(Makeup);
+export default connect(mapStateToProps,{showItem, showBrand, handleChangeMode, handleView})(Makeup);
