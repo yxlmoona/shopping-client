@@ -300,6 +300,9 @@ code {
   justify-content: space-between;
 
 }
+.nav-top p{
+  margin: 10px;
+}
 .nav-top-right,.nav-main-top{
 
   display: flex;

@@ -1,5 +1,26 @@
 import { REGISTER, SIGN_IN, CHANGE_USER_VIEW } from './types.js'
-import jwt_decode from 'jwt-decode'
+import axios from 'axios'
+
+// export const signIn = (e,postData) => {
+//   e.preventDefault()
+//   console.log(postData);
+//   return(
+//     (dispatch) => {
+//       // (
+//         axios.post('http://localhost:3000/users/login',{},{
+//           auth:{
+//             postData: postData
+//           }
+//         })
+//         .then((res) => {
+//           console.log(res);
+//         })
+//
+//
+//       // )()
+//     }
+//   )
+// }
 
 export const register = (e,postData) => {
   e.preventDefault()
@@ -46,7 +67,8 @@ export const signIn = (e,postData) => {
             headers: {
               'Accept': 'application/json, text/plain, */*',
               'Content-Type': 'application/json',
-            
+
+
               }
           })
           // console.log(response);

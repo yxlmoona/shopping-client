@@ -8,14 +8,38 @@ import UserForm from './userForm.js'
 import { Redirect } from 'react-router-dom'
 import Elf from './Elf.js'
 
+
+
 class Header extends React.Component{
   constructor(props){
     super(props)
     this.state = {
       search: '',
-      submit: false
+      submit: false,
+      text: 0,
+      textArray: ['Free Shipping with $100 purchase', 'Welcome to MoMoKo', 'Pick 2 Free Sample With Any Purchase', 'MoMoko Credit Card. Apply Today >']
     }
   }
+
+  componentDidMount(){
+    setInterval(() => {
+      this.switchText()
+    }, 2000);
+  }
+
+  switchText = () => {
+    if(this.state.text < this.state.textArray.length - 1){
+      this.setState({
+        text: this.state.text + 1
+      })
+    }else{
+      this.setState({
+        text: 0
+      })
+    }
+  }
+
+
 
   handleChange = (e) => {
     this.setState({
@@ -34,7 +58,7 @@ class Header extends React.Component{
         <div className='header-nav'>
 
           <div className='nav-top'>
-            <p>Free Shipping with $100 purchase</p>
+            <p>{this.state.textArray[this.state.text]}</p>
             <div className='nav-top-right'>
 
               <img src="https://img.icons8.com/ios-glyphs/30/000000/truck.png"/>
@@ -60,7 +84,7 @@ class Header extends React.Component{
               }}>
                 <input onChange={this.handleChange} type="text" placeholder="Search.." value={this.state.search}/>
               </form>
-              <h1>T Z I P O R A</h1>
+              <h1>M O M O K O</h1>
               {
                 this.props.view == ''
                 ?''
