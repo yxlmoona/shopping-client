@@ -60,7 +60,7 @@ class Header extends React.Component{
               }}>
                 <input onChange={this.handleChange} type="text" placeholder="Search.." value={this.state.search}/>
               </form>
-              <h1>S E P H O R A</h1>
+              <h1>T Z I P O R A</h1>
               {
                 this.props.view == ''
                 ?''

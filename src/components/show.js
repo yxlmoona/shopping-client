@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import PropTypes from 'prop-types'
 import { addToCart } from '../actions/cartActions.js'
-import { addLove } from '../actions/itemActions.js'
+import { addLove, handleView } from '../actions/itemActions.js'
 
 import Rater from 'react-rater'
 import 'react-rater/lib/react-rater.css'
@@ -34,7 +34,9 @@ class Show extends React.Component{
       <div className='show'>
       <Header/>
       <div className='header-link'>
-        <p><Link to='/makeup'>{this.props.item.category1} ></Link>  {this.props.item.category2} > {this.props.item.title} </p>
+        <p><Link to='/makeup'>{this.props.item.category1} ></Link>  <Link to={`${this.props.item.category2}`} onClick={() => {
+          this.props.handleView(`${this.props.item.category2}`)
+        }}>{this.props.item.category2} > </Link >  {this.props.item.title} </p>
       </div>
       <div className='show-container'>
         <img src={this.props.item.image}/>
@@ -121,4 +123,4 @@ const mapStateToProps = (state) => {
 }
 
 
-export default connect(mapStateToProps,{addToCart, addLove})(Show)
+export default connect(mapStateToProps,{addToCart, addLove, handleView})(Show)
