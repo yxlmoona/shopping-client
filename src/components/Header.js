@@ -3,8 +3,13 @@ import { Link } from "react-router-dom";
 import { connect } from 'react-redux'
 import { handleView} from '../actions/itemActions.js'
 import { showBrand } from '../actions/brandActions.js'
+import { register, changeUserView } from '../actions/userActions.js'
+import UserForm from './userForm.js'
 
 class Header extends React.Component{
+
+
+
   render(){
     return(
       <>
@@ -29,7 +34,20 @@ class Header extends React.Component{
             <div className='nav-main-top'>
               <input type="text" placeholder="Search.."/>
               <h1>S E P H O R A</h1>
-              <h4>Hi,Welcome</h4>
+              {
+                this.props.view == ''
+                ?''
+                :<UserForm/>
+              }
+
+              <h4>Hi,Welcome!  </h4>
+              <h5>
+              <span onClick={() => {
+                this.props.changeUserView('signIn')
+              }}>Sign in</span> or
+              <span onClick={() => {
+                this.props.changeUserView('register')
+              }}> Register</span></h5>
               <Link to='/cart'>
               <img src="https://img.icons8.com/plasticine/100/000000/favorite-cart.png"/>
               </Link>
@@ -65,7 +83,7 @@ class Header extends React.Component{
                     {
                     this.props.brands.map((brand) => {
                       return(
-                        <p>
+                        <div>
 
                         <Link to={`/${brand.name}`}>
                         <p onClick={() => {
@@ -76,7 +94,7 @@ class Header extends React.Component{
                         }}>{brand.name}</p>
                         </Link>
 
-                        </p>
+                        </div>
                       )
                     })
                     }
@@ -104,7 +122,7 @@ class Header extends React.Component{
               <Link to='/sale' onClick={() => {
                 this.props.handleView('sale')
               }}>SALE</Link>
-              <Link to='/cart'>Cart</Link>
+              <Link to='/cart'>Busket ({this.props.cart.length})</Link>
             </div>
           </div>
         </div>
@@ -116,8 +134,10 @@ class Header extends React.Component{
 }
 const mapStateToProps = (state) => {
   return({
-
+    view: state.users.userView,
+    // viewTitle: state.users.viewTitle,
     brands: state.brands.brands,
+    cart: state.cartItems.items
   })
 }
-export default connect(mapStateToProps,{handleView,showBrand})(Header);
+export default connect(mapStateToProps,{handleView,showBrand,register,changeUserView})(Header);
