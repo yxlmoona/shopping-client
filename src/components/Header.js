@@ -5,14 +5,32 @@ import { handleView} from '../actions/itemActions.js'
 import { showBrand } from '../actions/brandActions.js'
 import { register, changeUserView } from '../actions/userActions.js'
 import UserForm from './userForm.js'
+import { Redirect } from 'react-router-dom'
+import Elf from './Elf.js'
 
 class Header extends React.Component{
+  constructor(props){
+    super(props)
+    this.state = {
+      search: '',
+      submit: false
+    }
+  }
 
-
+  handleChange = (e) => {
+    this.setState({
+      search: e.target.value
+    })
+  }
 
   render(){
     return(
       <>
+      {
+        this.state.submit ?
+        <Redirect to='/search' />
+        : ''
+      }
         <div className='header-nav'>
 
           <div className='nav-top'>
@@ -32,7 +50,16 @@ class Header extends React.Component{
 
           <div className='nav-main'>
             <div className='nav-main-top'>
-              <input type="text" placeholder="Search.."/>
+              <form onSubmit={(e) => {
+                e.preventDefault()
+                this.props.handleView(this.state.search)
+                this.setState({
+                  submit: true,
+                  search:''
+                })
+              }}>
+                <input onChange={this.handleChange} type="text" placeholder="Search.." value={this.state.search}/>
+              </form>
               <h1>S E P H O R A</h1>
               {
                 this.props.view == ''

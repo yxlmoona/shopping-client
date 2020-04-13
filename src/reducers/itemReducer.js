@@ -130,10 +130,17 @@ const itemReducer = (state = initialState, action) => {
           itemView.push(item)
         }
       }
-    }else{
+    }else if(action.payload == 'lip'){
       viewTitle = 'lip'
       for(let item of state.items){
         if(item.category2 == "lip"){
+          itemView.push(item)
+        }
+      }
+    }else{
+      viewTitle = action.payload
+      for(let item of state.items){
+        if(item.title.toLowerCase().includes(viewTitle.toLowerCase()) || item.body.toLowerCase().includes(viewTitle.toLowerCase())){
           itemView.push(item)
         }
       }

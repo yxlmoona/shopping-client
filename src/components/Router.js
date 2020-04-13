@@ -35,6 +35,7 @@ class Routers extends React.Component{
           <Route path='/face'  component={Elf}/>
           <Route path='/lip'  component={Elf}/>
 
+          <Route path='/search'  component={Elf}/>
 
 
 
@@ -51,7 +52,8 @@ class Routers extends React.Component{
 const mapStateToProps = (state) => {
   return({
     item: state.items.item,
-    brand: state.brands.brand
+    brand: state.brands.brand,
+    
   })
 }
 export default connect(mapStateToProps,{})(Routers)

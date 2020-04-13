@@ -95,6 +95,7 @@ export const addLove = (brandId, item) => {
 }
 
 export const handleView = (view) => {
+  
   return(
     (dispatch) => {
       dispatch({

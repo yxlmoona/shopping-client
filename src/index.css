@@ -473,6 +473,11 @@ color: black;
   margin: 20px 20px;
   color: gray;
 }
+.header-link select{
+  width: 120px;
+
+
+}
 .makeup{
   display: flex;
   justify-content: flex-start;
@@ -499,6 +504,10 @@ color: black;
   padding: 10px;
   border-top: 0.2em solid black;
   width: 150px;
+
+}
+.makeup-type p:hover{
+  text-decoration: underline;
 
 }
 #price{
