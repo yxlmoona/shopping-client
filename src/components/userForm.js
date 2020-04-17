@@ -27,9 +27,10 @@ class UserForm extends React.Component{
           <h1>{this.props.viewTitle}</h1>
           <form onSubmit={(e) => {
             if(this.props.view == 'signIn'){
-              this.props.signIn(e, this.state)
+              e.preventDefault()
+              this.props.signIn(e,this.state)
             }else{
-              this.props.register(e, this.state)
+              this.props.register(e,this.state)
             }
           }}>
             <input onChange={this.onChange} type="text" placeholder="Username" value={this.state.username} id='username'/>

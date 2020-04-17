@@ -22,9 +22,9 @@ import axios from 'axios'
 //   )
 // }
 
-export const register = (e,postData) => {
+export const register = (e, postData) => {
   e.preventDefault()
-
+  console.log(postData);
   return(
     (dispatch) => {
       (async() => {
@@ -33,10 +33,11 @@ export const register = (e,postData) => {
             body: JSON.stringify(postData),
             method: 'POST',
             headers: {
-              'Accept': 'application/json, text/plain, */*',
-              'Content-Type': 'application/json'
-              }
+           'Accept': 'application/json, text/plain, */*',
+           'Content-Type': 'application/json'
+            }
           })
+          console.log(response);
           let data = await response.json()
 
           console.log(data);
